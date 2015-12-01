@@ -26,14 +26,16 @@ public class TextFileReader implements FileReaderStrategy {
         
         File file = new File(filePath);
         
-         String data = "";
+       // String data = "";
+         List<String> theFile = new ArrayList<String>();
         
          BufferedReader in = null;
         try {
 	   in = new BufferedReader(new FileReader(file));
 	   String line = in.readLine();
 	   while(line != null){
-		  data += (line + "\n");
+               List<String> data = new ArrayList<String>();
+		  data.add(line + "\n");
 		  line = in.readLine();  // strips out any carriage return chars
                   
                   
@@ -50,7 +52,7 @@ public class TextFileReader implements FileReaderStrategy {
         }
         
         
-        
+        return System.out.println(data);
                 
     }
 
