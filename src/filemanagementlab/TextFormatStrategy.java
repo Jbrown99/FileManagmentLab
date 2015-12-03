@@ -16,9 +16,9 @@ import java.util.List;
  */
 public interface TextFormatStrategy {
     
-  public abstract void encode (List<String> data);  
+  public abstract void encode (ArrayList<String> data);  
   
-  public abstract ArrayList decode(ArrayList data);
+  public abstract ArrayList<String> decode(List<String> data);
     
     
     

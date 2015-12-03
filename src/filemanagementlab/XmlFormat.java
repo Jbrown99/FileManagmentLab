@@ -15,12 +15,12 @@ import java.util.List;
 public class XmlFormat implements TextFormatStrategy {
 
     @Override
-    public void encode(List<String> data) {
+    public void encode(ArrayList<String> data) {
         
     }
 
     @Override
-    public ArrayList decode(ArrayList data) {
+    public ArrayList decode(List<String> data) {
         
         
         return null;
