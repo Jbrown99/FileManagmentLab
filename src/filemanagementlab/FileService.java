@@ -11,4 +11,15 @@ package filemanagementlab;
  */
 public class FileService {
     
+    private TextFileReader read;
+    private TextFileWriter write;
+
+    public FileService(TextFileReader read, TextFileWriter write) {
+        this.read = read;
+        this.write = write;
+    }
+    
+    
+    
+    
 }

@@ -20,6 +20,10 @@ public class TextFileReader implements FileReaderStrategy {
     
     private TextFormatStrategy formatter;
     
+    public TextFileReader(TextFormatStrategy format){
+        this.formatter = format;
+    }
+    
 
     @Override
     public ArrayList readFile(String filePath) {
@@ -56,10 +60,7 @@ public class TextFileReader implements FileReaderStrategy {
                 
     }
 
-    @Override
-    public void setFormat(TextFormatStrategy txtFormat) {
-        this.formatter = txtFormat;
-    }
+   
 
     
     
@@ -73,4 +74,4 @@ public class TextFileReader implements FileReaderStrategy {
     
     
     
-}
+

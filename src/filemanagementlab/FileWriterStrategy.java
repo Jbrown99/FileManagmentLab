@@ -17,7 +17,6 @@ import java.util.List;
 public interface FileWriterStrategy {
     
     public abstract void setFilePath(String filePath);
-    public abstract void setFormat(TextFormatStrategy txtFormat);
     
-    public abstract void writeFile(List<String> data,boolean append)throws IOException;
+    public abstract void writeFile(ArrayList<String> data,boolean append)throws IOException;
 }

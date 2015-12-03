@@ -18,7 +18,7 @@ public interface FileReaderStrategy {
     
  public abstract ArrayList readFile(String filePath);
  
- public abstract void setFormat(TextFormatStrategy txtFormat);
+ 
  
  
     

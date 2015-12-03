@@ -21,17 +21,21 @@ public class TextFileWriter implements FileWriterStrategy {
     
     private TextFormatStrategy formatter;
     private String file;
+    
+   public TextFileWriter(TextFormatStrategy format){
+       this.formatter = format;
+   }
 
    
 
     @Override
-    public void writeFile(List<String> data, boolean append)throws IOException {
+    public void writeFile(ArrayList<String> data, boolean append)throws IOException {
         
         File theFile = new File(file);
         
        PrintWriter out = new PrintWriter( new BufferedWriter(new FileWriter(theFile,append)));
        
-           out.println(formatter.encode(data));
+           formatter.encode(data);
            out.close();
         
         
@@ -45,10 +49,7 @@ public class TextFileWriter implements FileWriterStrategy {
         
     }
 
-    @Override
-    public void setFormat(TextFormatStrategy txtFormat) {
-        this.formatter = txtFormat;
-    }
+   
     
     
     
