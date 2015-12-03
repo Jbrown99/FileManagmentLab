@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class TextFileReader implements FileReaderStrategy {
     
-    
+    private TextFormatStrategy formatter;
     
 
     @Override
@@ -26,15 +26,15 @@ public class TextFileReader implements FileReaderStrategy {
         
         File file = new File(filePath);
         
-       // String data = "";
-         List<String> theFile = new ArrayList<String>();
+       
+        List<String> data = new ArrayList<String>();
         
          BufferedReader in = null;
         try {
 	   in = new BufferedReader(new FileReader(file));
 	   String line = in.readLine();
 	   while(line != null){
-               List<String> data = new ArrayList<String>();
+               
 		  data.add(line + "\n");
 		  line = in.readLine();  // strips out any carriage return chars
                   
@@ -52,8 +52,13 @@ public class TextFileReader implements FileReaderStrategy {
         }
         
         
-        return System.out.println(data);
+        return formatter.decode(data);
                 
+    }
+
+    @Override
+    public void setFormat(TextFormatStrategy txtFormat) {
+        this.formatter = txtFormat;
     }
 
     

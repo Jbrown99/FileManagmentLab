@@ -8,6 +8,7 @@ package filemanagementlab;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public interface FileWriterStrategy {
     
     public abstract void setFilePath(String filePath);
+    public abstract void setFormat(TextFormatStrategy txtFormat);
     
-    public abstract void writeFile(ArrayList data,boolean append)throws IOException;
+    public abstract void writeFile(List<String> data,boolean append)throws IOException;
 }

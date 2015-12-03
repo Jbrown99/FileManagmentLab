@@ -7,6 +7,7 @@ package filemanagementlab;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -15,7 +16,9 @@ import java.util.ArrayList;
  */
 public interface TextFormatStrategy {
     
-    public abstract ArrayList passInText(File data);
+  public abstract List<String> encode (List<String> data);  
+  
+  public abstract ArrayList decode(List<String> data);
     
     
     

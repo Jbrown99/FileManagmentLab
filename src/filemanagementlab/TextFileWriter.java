@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,29 +20,34 @@ import java.util.ArrayList;
 public class TextFileWriter implements FileWriterStrategy {
     
     private TextFormatStrategy formatter;
-    
     private String file;
 
+   
+
     @Override
+    public void writeFile(List<String> data, boolean append)throws IOException {
+        
+        File theFile = new File(file);
+        
+       PrintWriter out = new PrintWriter( new BufferedWriter(new FileWriter(theFile,append)));
+       
+           out.println(formatter.encode(data));
+           out.close();
+        
+        
+        
+    }
+    
+    
+      @Override
     public void setFilePath(String file) {
         this.file = file;
         
     }
 
     @Override
-    public void writeFile(ArrayList data, boolean append)throws IOException {
-        
-        File theFile = new File(file);
-        
-        PrintWriter out = new PrintWriter(
-						new BufferedWriter(
-						new FileWriter(theFile, append)));
-        
-        formatter.passInText(theFile);
-        out.close();
-        
-        
-        
+    public void setFormat(TextFormatStrategy txtFormat) {
+        this.formatter = txtFormat;
     }
     
     
